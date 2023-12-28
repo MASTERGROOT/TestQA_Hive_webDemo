@@ -3,6 +3,11 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+results/
+log.html
+output.xml
+report.html
+*.png
 # C extensions
 *.so
 
@@ -178,3 +183,4 @@ Backup of *.doc*
 
 # Visio autosave temporary files
 *.~vsd*
+
