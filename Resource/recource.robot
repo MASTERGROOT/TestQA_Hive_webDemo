@@ -6,6 +6,8 @@ Library    SeleniumLibrary
 *** Variables ***
 ${url}    https://web-demo.qahive.com/
 ${Browser}    Chrome
+&{form_locator}    username=//input[@id='username']    firstname=//input[@name='firstname']    lastname=//input[contains(@class,'lastname')]    submit=//button[@type='submit']  
+
 
 *** Keywords ***
 Lanuch URL
@@ -42,3 +44,9 @@ Done Todo
     Click Button    locator=//div[../span = '${arr}']/button[contains(@data-testid,'Done')]
     ${text1}=    Get Element Attribute    locator=//span[text() = '${arr}']    attribute=style
     Should Be Equal    first=${text1}    second=text-decoration: line-through;
+
+Input List Of Names And UserName
+    [Arguments]    ${username}    ${firstname}    ${lastname}
+    Input Text    locator=${form_locator.username}    text=${username}    clear=True
+    Input Text    locator=${form_locator.firstname}    text=${firstname}    clear=True
+    Input Text    locator=${form_locator.lastname}    text=${lastname}    clear=True

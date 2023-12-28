@@ -3,37 +3,34 @@ Resource    ../Resource/recource.robot
 Library    ../Resource/checkDownload.py
 Library    OperatingSystem
 *** Variables ***
-@{FirstName}    good    bow
-@{LastName}    vith_d    ranyahu
-@{UserName}    gekD    MiMi
-@{Sex}    Male    Female
-@{Country}    Thailand    Hongkong
-&{FullName1}    first=@{FirstName}     last=@{LastName}    user=@{UserName}    sex=@{Sex}
-&{Locator}    username=//input[@id='username']    firstname=//input[@name='firstname']    lastname=//input[contains(@class,'lastname')]    submit=//button[@type='submit']  
+@{FirstName}    Alexis    Kip    Gabe
+@{LastName}    Sporer    Maggio    Robel
+@{UserName}    Alexis    Kip    Gabe
+@{Sex}    Female    Male    Female
+@{Country}    Philippines    Hongkong    Vietnam
 *** Test Cases ***
 TestInput
     LanuchURL
     Set Selenium Speed    value=0.1s
     Open Form Page
-    ${len}    Get Length    item=@{UserName}
+    ${len}    Get Length    item=@{FirstName}
 
     TRY
-        Element Should Be Disabled     //button[@type='submit']
+        Element Should Be Disabled     ${form_locator.submit}
         FOR    ${i}    IN RANGE    ${len}
-            Input Text    locator=${Locator.username}    text=${FullName1.user}[${i}]    clear=True
-            Input Text    locator=${Locator.firstname}    text=${FullName1.first}[${i}]    clear=True
-            Input Text    locator=${Locator.lastname}    text=${FullName1.last}[${i}]    clear=True
+            Input List Of Names And UserName    ${UserName}[${i}]    ${FirstName}[${i}]    ${LastName}[${i}]
             Select Radio Button    group_name=gender    value=${Sex}[${i}]
             Select From List By Label    //select    ${Country}[${i}]
             Select Checkbox    locator=//input[@type = 'checkbox']
-            Element Should Be Enabled     ${Locator.submit}
-            Click Button    locator=${Locator.submit}
+            Element Should Be Enabled     ${form_locator.submit}
+            Click Button    locator=${form_locator.submit}
             Element Should Be Visible    //div[contains(@class, 'alert-success')]
         END
     EXCEPT
         Skip
+        Close Browser
     END
-    
+    Close All Browsers
     
 # DownloadTest
 #     LanuchURL
