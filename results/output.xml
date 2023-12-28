@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.11.6 on darwin)" generated="20231227 22:35:07.589" rpa="false" schemaversion="4">
+<suite id="s1" name="QA Hive webDemo" source="/Users/goody/Desktop/Github/QA_Hive_webDemo">
+<suite id="s1-s1" name="Tests" source="/Users/goody/Desktop/Github/QA_Hive_webDemo/Tests">
+<suite id="s1-s1-s1" name="FormTest" source="/Users/goody/Desktop/Github/QA_Hive_webDemo/Tests/FormTest.robot">
+<test id="s1-s1-s1-t1" name="DownloadTest" line="38">
+<kw name="Lanuch URL" library="recource">
+<doc>Run Keyword for open url and Maximize it</doc>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>url=${url}</arg>
+<arg>browser=${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231227 22:35:07.700" level="INFO">Opening browser 'Chrome' to base url 'https://web-demo.qahive.com/'.</msg>
+<status status="PASS" starttime="20231227 22:35:07.699" endtime="20231227 22:35:10.102"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231227 22:35:10.103" endtime="20231227 22:35:10.557"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>RPA Core Service App</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20231227 22:35:10.557" endtime="20231227 22:35:10.572"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>title=RPA Core Service App</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20231227 22:35:10.575" level="INFO">Page title is 'RPA Core Service App'.</msg>
+<status status="PASS" starttime="20231227 22:35:10.572" endtime="20231227 22:35:10.575"/>
+</kw>
+<status status="PASS" starttime="20231227 22:35:07.699" endtime="20231227 22:35:10.575"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>value=0.5s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20231227 22:35:10.576" endtime="20231227 22:35:10.576"/>
+</kw>
+<kw name="Open Form Page" library="recource">
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>locator=//a[text() = 'Form']</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20231227 22:35:10.577" level="INFO">Clicking link '//a[text() = 'Form']'.</msg>
+<status status="PASS" starttime="20231227 22:35:10.576" endtime="20231227 22:35:12.159"/>
+</kw>
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>text=Form Demo</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20231227 22:35:12.160" endtime="20231227 22:35:12.684"/>
+</kw>
+<status status="PASS" starttime="20231227 22:35:10.576" endtime="20231227 22:35:12.686"/>
+</kw>
+<kw name="Get Time" library="BuiltIn">
+<var>${now}</var>
+<arg>format=epoch</arg>
+<doc>Returns the given time in the requested format.</doc>
+<msg timestamp="20231227 22:35:12.688" level="INFO">${now} = 1703691312</msg>
+<status status="PASS" starttime="20231227 22:35:12.687" endtime="20231227 22:35:12.689"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${now}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231227 22:35:12.690" endtime="20231227 22:35:12.690"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//*[@id="root"]/main/div/div/form/div[7]/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231227 22:35:12.691" level="INFO">Clicking element '//*[@id="root"]/main/div/div/form/div[7]/a'.</msg>
+<msg timestamp="20231227 22:35:14.996" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231227 22:35:14.997" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element is not clickable at point (593, 825)
+  (Session info: chrome=120.0.6099.129)
+Stacktrace:
+0   chromedriver                        0x00000001011044dc chromedriver + 4162780
+1   chromedriver                        0x00000001010fc664 chromedriver + 4130404
+2   chromedriver                        0x0000000100d53bc0 chromedriver + 293824
+3   chromedriver                        0x0000000100da10b4 chromedriver + 610484
+4   chromedriver                        0x0000000100d9f090 chromedriver + 602256
+5   chromedriver                        0x0000000100d9cb58 chromedriver + 592728
+6   chromedriver                        0x0000000100d9bb24 chromedriver + 588580
+7   chromedriver                        0x0000000100d8f994 chromedriver + 539028
+8   chromedriver                        0x0000000100d8f250 chromedriver + 537168
+9   chromedriver                        0x0000000100dd9ab0 chromedriver + 842416
+10  chromedriver                        0x0000000100d8d6bc chromedriver + 530108
+11  chromedriver                        0x0000000100d8e930 chromedriver + 534832
+12  chromedriver                        0x00000001010c9e08 chromedriver + 3923464
+13  chromedriver                        0x00000001010ce3dc chromedriver + 3941340
+14  chromedriver                        0x00000001010b2038 chromedriver + 3825720
+15  chromedriver                        0x00000001010cef3c chromedriver + 3944252
+16  chromedriver                        0x00000001010a46f4 chromedriver + 3770100
+17  chromedriver                        0x00000001010eb980 chromedriver + 4061568
+18  chromedriver                        0x00000001010ebaf8 chromedriver + 4061944
+19  chromedriver                        0x00000001010fc2e4 chromedriver + 4129508
+20  libsystem_pthread.dylib             0x0000000180f2a034 _pthread_start + 136
+21  libsystem_pthread.dylib             0x0000000180f24e3c thread_start + 8
+</msg>
+<status status="FAIL" starttime="20231227 22:35:12.691" endtime="20231227 22:35:15.004"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>30s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231227 22:35:15.004" endtime="20231227 22:35:15.005"/>
+</kw>
+<kw name="Check Download" library="checkDownload">
+<var>${res}</var>
+<arg>${now}</arg>
+<status status="NOT RUN" starttime="20231227 22:35:15.005" endtime="20231227 22:35:15.005"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${res}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20231227 22:35:15.005" endtime="20231227 22:35:15.005"/>
+</kw>
+<status status="FAIL" starttime="20231227 22:35:07.699" endtime="20231227 22:35:15.006">ElementClickInterceptedException: Message: element click intercepted: Element is not clickable at point (593, 825)
+  (Session info: chrome=120.0.6099.129)
+Stacktrace:
+0   chromedriver                        0x00000001011044dc chromedriver + 4162780
+1   chromedriver                        0x00000001010fc664 chromedriver + 4130404
+2   chromedriver                        0x0000000100d53bc0 chromedriver + 293824
+3   chromedriver                        0x0000000100da10b4 chromedriver + 610484
+4   chromedriver                        0x0000000100d9f090 chromedriver + 602256
+5   chromedriver                        0x0000000100d9cb58 chromedriver + 592728
+6   chromedriver                        0x0000000100d9bb24 chromedriver + 588580
+7   chromedriver                        0x0000000100d8f994 chromedriver + 539028
+    [ Message content over the limit has been removed. ]
+...hromedriver                        0x0000000100d8e930 chromedriver + 534832
+12  chromedriver                        0x00000001010c9e08 chromedriver + 3923464
+13  chromedriver                        0x00000001010ce3dc chromedriver + 3941340
+14  chromedriver                        0x00000001010b2038 chromedriver + 3825720
+15  chromedriver                        0x00000001010cef3c chromedriver + 3944252
+16  chromedriver                        0x00000001010a46f4 chromedriver + 3770100
+17  chromedriver                        0x00000001010eb980 chromedriver + 4061568
+18  chromedriver                        0x00000001010ebaf8 chromedriver + 4061944
+19  chromedriver                        0x00000001010fc2e4 chromedriver + 4129508
+20  libsystem_pthread.dylib             0x0000000180f2a034 _pthread_start + 136
+21  libsystem_pthread.dylib             0x0000000180f24e3c thread_start + 8</status>
+</test>
+<status status="FAIL" starttime="20231227 22:35:07.602" endtime="20231227 22:35:15.007"/>
+</suite>
+<status status="FAIL" starttime="20231227 22:35:07.601" endtime="20231227 22:35:15.008"/>
+</suite>
+<status status="FAIL" starttime="20231227 22:35:07.591" endtime="20231227 22:35:15.009"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="QA Hive webDemo">QA Hive webDemo</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="Tests">QA Hive webDemo.Tests</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1-s1" name="FormTest">QA Hive webDemo.Tests.FormTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
